@@ -1,16 +1,16 @@
 import React from 'react';
 import {Button, ConstructorElement, CurrencyIcon, DragIcon} from '@ya.praktikum/react-developer-burger-ui-components';
-import Distance from "../Distance";
 import {data} from "../../utils/data";
-import './burger-constructor.css'
+import classnames from "classnames";
+import main from '../app/app.module.css'
+import style from './burger-constructor.module.css'
 
 // type BurgerConstructorProps = {}
 const BurgerConstructor = () => {
   const totalOrderSum  = data.map(item => item.price).reduce((partialSum, a) => partialSum + a, 0);
   return (
-      <div className="w-48">
-        <Distance w={null} h={25}/>
-        <div className="flex f-d-column f-a-center gap-10">
+      <div className={classnames('mb-10', main.w_48)}>
+        <div className={classnames(main.flex,  main.f_d_column, main.f_a_center, main.gap_10)}>
           <ConstructorElement
               type="top"
               isLocked={true}
@@ -18,18 +18,20 @@ const BurgerConstructor = () => {
               price={200}
               thumbnail={'https://code.s3.yandex.net/react/code/bun-01-large.png'}
           />
-          <div className="constructor-body flex f-d-column gap-10">
+          <div className={classnames(main.flex,  main.f_d_column, style.constructor_body, main.gap_10)}>
             {
               data.map((item:any, index ) => {
-                return (
-                    <div className="flex f-a-center" key={index}>
-                      <DragIcon type={"primary"}/><Distance w={1} h={null}/>
-                      <ConstructorElement key={index}
+                if(item.type !== 'bun') {
+                  return (
+                    <div className={classnames(main.flex, main.f_a_center, main.f_j_between)} key={index}>
+                      <DragIcon type={"primary"}/>
+                      <ConstructorElement key={item._key}
                         text={item.name}
                         price={item.price}
                         thumbnail={item.image_mobile}/>
                     </div>
-                )
+                  )
+                }
               })
             }
           </div>
@@ -41,13 +43,15 @@ const BurgerConstructor = () => {
               thumbnail={'https://code.s3.yandex.net/react/code/bun-01-large.png'}
           />
         </div>
-        <Distance w={null} h={10}/>
-        <div className="flex j-c-end f-a-center">
-          <p className="text text_type_digits-medium total-sum flex">{totalOrderSum}
-            <CurrencyIcon type="primary" /></p><Distance w={10} h={10}/>
+        <div className={classnames(main.flex, main.f_a_center, main.j_c_end, 'mt-5 mb-5')}>
+          <p className={classnames(main.flex, 'text text_type_digits-medium mr-10', style.total_sum)}>
+            {totalOrderSum}
+            <CurrencyIcon type="primary" />
+          </p>
           <Button type="primary" size="large">Оформить заказ</Button>
         </div>
       </div>
+
   );
 };
 

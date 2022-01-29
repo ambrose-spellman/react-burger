@@ -2,18 +2,15 @@ import React from 'react';
 import AppHeader from "../app-header/AppHeader";
 import BurgerConstructor from "../burger-constructor/BurgerConstructor";
 import BurgerIngredients from "../burger-ingredients/BurgerIngredients";
-import Distance from "../Distance";
-import './main.css';
-
-const Main = () => {
+import classnames from "classnames";
+import style from './app.module.css';
+const App = () => {
 
   return (
-    <div className="main container">
+    <div className={classnames(style.container ,style.main)} >
         <AppHeader/>
-        <Distance w={null} h={10}/>
-        <h2 className="title-lg">Соберите бургер</h2>
-        <Distance w={null} h={5}/>
-        <div className="row j-c-between">
+        <h2 className={classnames(style.title_lg, "mt-10 mb-5")}>Соберите бургер</h2>
+        <div className={classnames(style.row , style.j_c_between)}>
           <BurgerIngredients/>
           <BurgerConstructor />
         </div>
@@ -21,4 +18,4 @@ const Main = () => {
   );
 }
 
-export default Main;
+export default App;

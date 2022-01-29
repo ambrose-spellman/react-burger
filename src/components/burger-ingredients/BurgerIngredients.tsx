@@ -1,15 +1,15 @@
 import React from 'react';
 import {Button, Tab} from '@ya.praktikum/react-developer-burger-ui-components';
-import Distance from "../Distance";
-import Ingredient from "../Ingredient/Ingredient";
-import  './burger-ingredients.css';
-
+import IngredientList from "../IngredientList/IngredientList";
+import classnames from "classnames";
+import main from '../app/app.module.css'
+import style from '././burger-ingredients.module.css'
 // type BurgerIngredientsProps = {}
 const BurgerIngredients = () => {
   const [current, setCurrent] = React.useState('one')
   return (
-      <div className="w-48" >
-        <div className="flex">
+      <div className={main.w_48} >
+        <div className={classnames(main.flex, 'mb-5')}>
         
           <Tab value="one" active={current === 'one'} onClick={setCurrent}>
             <Button type="secondary" size="medium">Булки</Button>
@@ -21,12 +21,10 @@ const BurgerIngredients = () => {
             <Button type="secondary" size="medium">  Начинки</Button>
           </Tab>
         </div>
-        <Distance w={null} h={10}/>
-        <div className="tab-body">
-        
-          <Ingredient name={'Булки'} type={'bun'}/>
-          <Ingredient name={'Соусы'} type={'sauce'}/>
-          <Ingredient name={'Начинки'} type={'main'}/>
+        <div className={style.tab_body}>
+          <IngredientList name={'Булки'} type={'bun'}/>
+          <IngredientList name={'Соусы'} type={'sauce'}/>
+          <IngredientList name={'Начинки'} type={'main'}/>
         </div>
       </div>
   );

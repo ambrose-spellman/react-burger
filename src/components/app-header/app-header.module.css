@@ -1,5 +1,8 @@
-.header-btn {
+.header_btn {
     font-size: 16px;
     line-height: 24px;
     color: #F2F2F3;
+}
+a {
+    text-decoration: none;
 }
