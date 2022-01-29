@@ -27,9 +27,11 @@ const IngredientList  = ({ name, type }: IngredientListProps) => {
       <div className={classnames(style.ingredients, 'mb-5')}>
         <h3 className="title-md">{name}</h3>
         <div className={classnames(main.row, main.f_wrap)}>
-          { data.filter((ingredient) =>ingredient.type === type).map((item: any) => {
+          { data.filter((ingredient) =>ingredient.type === type).map((item: any, index) => {
             return (
-              <div key={item._key} onClick={handleCounterClick} className={classnames(main.w_45, main.flex, main.f_d_column, main.f_a_center, style.ingredient, 'mb-10')}>
+              <div key={`${item._id}_${index}`}
+                   onClick={handleCounterClick}
+                   className={classnames(main.w_45, main.flex, main.f_d_column, main.f_a_center, style.ingredient, 'mb-10')}>
                   {item.calories < 1200 && (<Counter count={counter}/>)} {/*Временное условия чтобы видеть счетчики*/}
                   <img className={classnames(main.w_100, 'mb-2')} src={item.image_large} alt="neo burger"/>
                   <p className={classnames(main.flex, style.ingredient_price, 'mb-1')}>

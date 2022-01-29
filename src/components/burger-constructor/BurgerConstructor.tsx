@@ -23,9 +23,9 @@ const BurgerConstructor = () => {
               data.map((item:any, index ) => {
                 if(item.type !== 'bun') {
                   return (
-                    <div className={classnames(main.flex, main.f_a_center, main.f_j_between)} key={index}>
+                    <div className={classnames(main.flex, main.f_a_center, main.f_j_between)}  key={`${item._id}_${index}`} >
                       <DragIcon type={"primary"}/>
-                      <ConstructorElement key={item._key}
+                      <ConstructorElement
                         text={item.name}
                         price={item.price}
                         thumbnail={item.image_mobile}/>
