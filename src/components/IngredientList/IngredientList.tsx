@@ -29,7 +29,7 @@ const IngredientList  = ({ name, type }: IngredientListProps) => {
         <div className={classnames(main.row, main.f_wrap)}>
           { data.filter((ingredient) =>ingredient.type === type).map((item: any, index) => {
             return (
-              <div key={`${item._id}_${index}`}
+              <article key={`${item._id}`}
                    onClick={handleCounterClick}
                    className={classnames(main.w_45, main.flex, main.f_d_column, main.f_a_center, style.ingredient, 'mb-10')}>
                   {item.calories < 1200 && (<Counter count={counter}/>)} {/*Временное условия чтобы видеть счетчики*/}
@@ -39,7 +39,7 @@ const IngredientList  = ({ name, type }: IngredientListProps) => {
                     <CurrencyIcon type="primary" />
                   </p>
                   <p className={classnames('text text_type_main-default', 'mb-3')}>{item.name}</p>
-              </div>
+              </article>
             )
           })
         }

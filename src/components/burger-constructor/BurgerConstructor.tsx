@@ -9,7 +9,7 @@ import style from './burger-constructor.module.css'
 const BurgerConstructor = () => {
   const totalOrderSum  = data.map(item => item.price).reduce((partialSum, a) => partialSum + a, 0);
   return (
-      <div className={classnames('mb-10', main.w_48)}>
+      <section className={classnames('mb-10', main.w_48)}>
         <div className={classnames(main.flex,  main.f_d_column, main.f_a_center, main.gap_10)}>
           <ConstructorElement
               type="top"
@@ -50,7 +50,7 @@ const BurgerConstructor = () => {
           </p>
           <Button type="primary" size="large">Оформить заказ</Button>
         </div>
-      </div>
+      </section>
 
   );
 };
