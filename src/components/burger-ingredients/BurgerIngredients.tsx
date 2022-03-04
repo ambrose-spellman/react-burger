@@ -8,7 +8,7 @@ import style from '././burger-ingredients.module.css'
 const BurgerIngredients = () => {
   const [current, setCurrent] = React.useState('one')
   return (
-      <div className={main.w_48} >
+      <section className={main.w_48} >
         <div className={classnames(main.flex, 'mb-5')}>
         
           <Tab value="one" active={current === 'one'} onClick={setCurrent}>
@@ -26,7 +26,7 @@ const BurgerIngredients = () => {
           <IngredientList name={'Соусы'} type={'sauce'}/>
           <IngredientList name={'Начинки'} type={'main'}/>
         </div>
-      </div>
+      </section>
   );
 };
 
