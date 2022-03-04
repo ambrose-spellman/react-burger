@@ -1,0 +1,11 @@
+.ingredient {
+   position: relative;
+}
+.ingredient_price {
+   vertical-align: middle;
+}
+.counter {
+   position: absolute;
+   top: 0;
+   right: 0;
+}
